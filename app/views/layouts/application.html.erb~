@@ -1,4 +1,4 @@
-<% provide(:title, 'Sample App') %>
+<% provide(:title, 'Ruby on Rails Tutorial Sample App') %>
 
 <!DOCTYPE html>
 <html>
