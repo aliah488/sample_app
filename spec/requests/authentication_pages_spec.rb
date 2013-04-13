@@ -38,20 +38,24 @@ describe "Authentication" do
          specify { response.should redirect_to(root_path) }
        end
     end
-
     
 
     describe "authorization" do
 
+
        describe "for non-signed-in users" do
           let(:user) { FactoryGirl.create(:user) }
+
 
           describe "when attempting to visit a protected page" do
              before do
                 visit edit_user_path(user)
-                fill_in "Email",           with: user.email
-                fill_in "Password", with: user.password
-                click_button "Sign in"
+
+                # Exercise 9.6.5 adding the sign_in test helper
+                sign_in user
+                # fill_in "Email",           with: user.email
+                # fill_in "Password", with: user.password
+                # click_button "Sign in"
              end
 
           describe "after signing in" do
@@ -116,6 +120,12 @@ describe "Authentication" do
 
      describe "followed by signout" do
       before { click_link "Sign out" }
+
+      # Exercise 9.6.3 added tests to make sure that Profile and Settings links don't appear
+      # when a user isn't signed in 
+      it { should_not have_link('Profile',  href: user_path(user)) }
+      it { should_not have_link('Settings', href: edit_user_path(user)) }
+
       it { should have_link('Sign in') }
      end
     end
