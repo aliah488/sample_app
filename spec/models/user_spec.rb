@@ -19,7 +19,22 @@ describe User do
 
   end
 
+  
+
+
   subject { @user }
+
+  
+  # added :admin to attr_accessible in app/models/user.rb to get first to Red
+  # removed :admin from attr_accessible in app/models/user.rb to get Green
+  describe "admin attribute" do
+    it  "should not be accessible" do
+        expect do
+            @user.update_attributes(:admin => true)
+        end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+  end
+
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
