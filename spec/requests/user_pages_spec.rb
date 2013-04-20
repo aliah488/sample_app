@@ -68,6 +68,15 @@ describe "User pages" do
        it { should have_content(m2.content) }
        it { should have_content(user.microposts.count) }
      end
+
+     # Exercise 10.5.2: Adding tests for micropost pagination
+     describe "pagination" do
+         it "should paginate the feed" do
+         30.times { FactoryGirl.create(:micropost, user: user) }
+         visit root_path
+         page.should have_selector('div', class: 'pagination')
+         end
+     end
    end
 
    describe "edit" do
