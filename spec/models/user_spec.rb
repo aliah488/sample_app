@@ -227,7 +227,8 @@ describe User do
       end      
    end
 
-    
+    # Exercise 11.5.1 Adding test for destroying relationships
+    # associated with a given user
     describe "relationship associations" do
       let(:other_user) { FactoryGirl.create(:user) }
       before do
