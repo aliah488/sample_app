@@ -145,26 +145,24 @@ aside {
     &:first-child {
     padding-left: 0;
     border: 0;
-    }
-    &:hover {
-     text-decoration: none;
-     color: $blue;
-    }
-   }
-   strong {
-     display: block;
-   }
+  }
+  &:hover {
+    text-decoration: none;
+    color: $blue;
+  }
  }
-
-.user_avatars {
-   overflow: auto;
-   margin-top: 10px;
-   .gravatar {
-     margin: 1px 1px;
-   }
+ strong {
+  display: block;
+ }
 }
 
-
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
 
 
 
@@ -198,8 +196,7 @@ aside {
      color: white;
      text-decoration: none;
    }
-
-
+}
 
 /* microposts */
 
@@ -255,4 +252,6 @@ li {
    }
  }
 }
+
+
 
